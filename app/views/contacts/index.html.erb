@@ -1,27 +1,18 @@
 <table>
     <tr>
         <th>Nome</th>
-        <th>Data de nascimento</th>
-        <th>Telefone</th>
-        <th>Rua</th>
-        <th>Número</th>
-        <th>Cidade</th>
     </tr>
 
     <% @contacts.each do |contact| %>
         <tr>
-            <td><%= contact.name %></td>
-            <td><%= contact.birthdate %></td>
-            <td><%= contact.phone %></td>
-            <td><%= contact.address.street %></td>
-            <td><%= contact.address.number %></td>
-            <td><%= contact.address.city %></td>
+            <td><%=link_to contact.name, contact_path(contact)%></td>
         </tr>
     <% end %>
+    
 </table>
 
-
-    
-
+<div class="button-center">
+    <%=button_to "Criar Novo", :new_contact, method: :get%>
+</div>
 
 

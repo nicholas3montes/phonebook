@@ -1,0 +1,29 @@
+<%= form_for @contact do |form| %>
+  <table>
+    <tr>
+      <td><%= form.label :Nome %><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :Telefone %><%= form.text_field :phone %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :Data_de_Nascimento %><%= form.date_field :birthdate %></td>
+    </tr>
+
+    <%= form.fields_for :address do |address_form| %>
+      <tr>
+        <td><%= address_form.label :Cidade %><%= address_form.text_field :city %></td>
+      </tr>
+      <tr>
+        <td><%= address_form.label :Rua %><%= address_form.text_field :street %></td>
+      </tr>
+      <tr>
+        <td><%= address_form.label :Número %><%= address_form.text_field :number %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td><%= form.submit %></td>
+    </tr>
+  </table>
+<% end %>

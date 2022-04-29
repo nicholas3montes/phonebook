@@ -17,8 +17,23 @@
 
 table, th, td {
     border:1px solid black;
+    background: center/cover white;
+    margin: auto;
 }
 
 th {
-    color: red;
+    color: rgb(0, 0, 0);
+}
+
+td{
+    color:grey
+}
+
+body {
+    height: 100vh;
+    background: no-repeat center/cover url(agenda.jpg);
+ }
+
+.button-center{
+    text-align:center;
 }

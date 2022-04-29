@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Data de nascimento</th>
+        <th>Telefone</th>
+        <th>Rua</th>
+        <th>Número</th>
+        <th>Cidade</th>
+    </tr>
+
+    <tr>
+        <td><%= @contact.name %></td>
+        <td><%= @contact.birthdate %></td>
+        <td><%= @contact.phone %></td>
+        <td><%= @contact.address.street %></td>
+        <td><%= @contact.address.number %></td>
+        <td><%= @contact.address.city %></td>
+    </tr>
+</table>
+
+<div class="button-center">
+    <%=button_to "Editar Contato", :edit_contact, method: :get%>
+</div>
+
+<div class="button-center">
+    <%=button_to "Excluir Contato",:contact , method: :delete%>
+</div>
