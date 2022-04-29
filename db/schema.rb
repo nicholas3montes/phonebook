@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_19_180250) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.integer "number"
@@ -25,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_180250) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "address_id"
+    t.bigint "address_id"
     t.index ["address_id"], name: "index_contacts_on_address_id"
   end
 
