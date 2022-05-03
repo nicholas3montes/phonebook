@@ -31,3 +31,8 @@
 <div class="button-center">
     <%=button_to "Voltar",:contacts , method: :get%>
 </div>
+<%if flash.any?%>
+  <%flash.each do |type, msg|%>
+    <%= msg %>
+  <% end %>
+<% end %>
