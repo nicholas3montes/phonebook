@@ -6,6 +6,10 @@ ruby "3.0.0"
 # Bootstrap css
 gem 'bootstrap', '~> 4.1.3'
 
+gem 'bootstrap-sass'
+
+gem 'turbolinks'
+
 #jquery
 gem 'jquery-rails'
 

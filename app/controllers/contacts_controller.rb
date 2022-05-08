@@ -28,9 +28,6 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to action: :index 
-    else
-      flash[:notice] ="not Create Contact"
-
     end
   end
 

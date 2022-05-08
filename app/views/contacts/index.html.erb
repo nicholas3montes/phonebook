@@ -1,18 +1,25 @@
-<table>
-    <tr>
-        <th>Nome</th>
-    </tr>
 
-    <% @contacts.each do |contact| %>
-        <tr>
-            <td><%=link_to contact.name, contact_path(contact)%></td>
-        </tr>
-    <% end %>
+<div class="container-fluid">
     
-</table>
+    <div class ="row-md-center">
+        <div class="text-center h2 " style="background-color: dark;">
+            <div>Contatos</div>
+        </div>
+    </div>
 
-<div class="button-center">
-    <%=button_to "Criar Novo", :new_contact, method: :get%>
+    <div class ="row-md-center">
+        <div class="col-md text-center h4" style="background-color: primary;">
+            <% @contacts.each do |contact| %>
+                <div class=""><%=link_to contact.name, contact_path(contact)%></div>
+            <% end %>
+        </div>
+    </div>
 </div>
 
-
+<div class="container-fluid  row-md-center">
+    <div class="row-md-center"> 
+        <div class="button-center" role="group" aria-label="WWW"><div class="btn btn-dark">
+            <%=link_to "Criar Novo", :new_contact, method: :get%>
+        </div>
+    </div>
+</div>
