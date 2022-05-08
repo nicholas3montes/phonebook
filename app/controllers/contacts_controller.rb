@@ -9,8 +9,8 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @contact = Contact.new
-    @contact.build_address
+    @contact = Contact.new 
+    @contact.build_address 
   end
   
   def edit
@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to action: :index
+      redirect_to action: :index 
     end
   end
 
