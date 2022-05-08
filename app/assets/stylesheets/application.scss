@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ 
 
 
 table, th, td {
@@ -37,3 +39,4 @@ body {
 .button-center{
     text-align:center;
 }
+
