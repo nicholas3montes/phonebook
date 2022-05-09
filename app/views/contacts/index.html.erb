@@ -8,7 +8,7 @@
     </div>
 
     <div class ="row-md-center">
-        <div class="col-md text-center h4" style="background-color: primary;">
+        <div class="col-2 offset-5 text-center h4 border boder color: white" style="background-color: primary;">
             <% @contacts.each do |contact| %>
                 <div class=""><%=link_to contact.name, contact_path(contact)%></div>
             <% end %>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="container-fluid  row-md-center">
+<div class="container-fluid">
     <div class="row-md-center"> 
         <div class="button-center" role="group" aria-label="WWW"><div class="btn btn-dark">
             <%=link_to "Criar Novo", :new_contact, method: :get%>
