@@ -8,7 +8,7 @@ describe 'ContactsController', type: :request do
             expect(response).to have_http_status(200)
         end
 
-        it 'deve retornar todas as tarefas' do
+        it 'deve retornar todas os contatos' do
             # Setup
             address = Address.create!(city:'são paulo', number:'8', street:'rua gouveia')
             address1 = Address.create!(city:'são paulo', number:'18', street:'rua pamplona')
@@ -28,21 +28,20 @@ describe 'ContactsController', type: :request do
         end
     end
     context 'show' do
-        it 'deve retornar uma tarefa' do
+        it 'deve retornar uma contato' do
             # Setup
             address1 = Address.create!(city:'são paulo', number:'18', street:'rua pamplona')
             contact = Contact.create!(name:'Etevaldo', phone: '954826482', birthdate:'25-6-1985', address: address1)
             
             # Execution
-            get api_v1_contacts_path(contact)
-            
+            get api_v1_contact_path(contact)
             # Expectations
             expect(response).to have_http_status(200)
             expect(response.body).to include contact.name
             expect(response.body).to include contact.phone
         end
     
-        it 'deve retornar not found se tarefa indisponível' do
+        it 'deve retornar not found se o contato for indisponível' do
             # Execution
             get api_v1_contact_path(id:999)
     
@@ -52,7 +51,7 @@ describe 'ContactsController', type: :request do
     end
 
     context 'post' do
-        it 'deve criar tarefa' do
+        it 'deve criar um contato' do
             # Setup
             address1 = { city:'são paulo', number:'18', street:'rua pamplona' }
             contact = { name: 'valdo', phone: '9854726482',  birthdate: '25-6-1985', address: address1 }
@@ -69,7 +68,7 @@ describe 'ContactsController', type: :request do
     end
 
     context 'destroy' do
-        it 'deve deletar' do
+        it 'deve deletar um contato' do
             # Setup
             address1 = Address.create!( city:'são paulo', number:'18', street:'rua pamplona' )
             contact = Contact.create!( name: 'valdo', phone: '9854726482',  birthdate: '25-6-1985', address: address1 )
@@ -84,7 +83,7 @@ describe 'ContactsController', type: :request do
         end
     end
     context 'update' do
-        it 'atualização' do
+        it 'deve atualizar um contato' do
             # Setup
             address1 = Address.create!( city:'são roque', number:'38', street:'rua campinas' )
             contact = Contact.create!( name: 'genival', phone: '9854726552',  birthdate: '15-2-1988', address: address1 )
