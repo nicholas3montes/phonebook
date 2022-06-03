@@ -1,12 +1,12 @@
 class Api::V1::ContactsController < Api::V1::ApiController 
 
     def index
-        contacts = Contact.all
+        contacts = ContactsServices.new.list_all_contacts
         render json: contacts, status: 200
     end 
 
     def show
-        contact = Contact.find(params[:id])
+        contact = ContactsServices.new.find_contact_by_id(params[:id])
         render json: contact, status: 200
     
       rescue ActiveRecord::RecordNotFound
@@ -14,31 +14,23 @@ class Api::V1::ContactsController < Api::V1::ApiController
     end
 
     def create
-        address = Address.create!(address_params)
-        contact = Contact.create!(contact_params.merge({address_id: address.id}))
+        contact = ContactsServices.new.create_contact(contact_params)
         render status: 201, json: contact
     end
 
     def update
-        contact = Contact.find(params[:id])
-        contact.update(contact_params)
+        contact = ContactsServices.new.update_contact(params[:id], contact_params)
         render status: 205, json: contact
     end
 
 
     def destroy
-        contact = Contact.find(params[:id])
-        contact.destroy!
+        contact = ContactsServices.new.destroy_contact(params[:id])
         render status: 204, json: contact
     end
 
     private
-
-    def contact_params                               
-        params.permit(:name, :phone, :birthdate)
-    end 
-
-    def address_params
-        params.require(:address).permit(:city, :number, :street)
-    end 
+    def contact_params
+      params.require(:contact).permit(:name, :phone, :birthdate, address_attributes:[:city, :number, :street])
+    end
 end

@@ -1,4 +1,4 @@
-class ContactsServices
+class Api::V1::ContactsServices
 
     def list_all_contacts
         Contact.all

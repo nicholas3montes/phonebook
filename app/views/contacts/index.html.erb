@@ -1,9 +1,14 @@
+<div class ="row-md-6">
 
+</div>
 <div class="container-fluid">
-    
     <div class ="row-md-center">
         <div class="text-center h2 " style="background-color: dark;">
             <div>Lista de Contatos</div>
+            <%= form_tag(contacts_path, method: :get) do%>
+            <%= text_field_tag 'search', nil, placeholder: 'Enter search name...'%>
+            <%= submit_tag "Search"%>
+            <% end %>
         </div>
     </div>
 
